@@ -1,1 +1,4 @@
 .build-times.json
+
+# Local Claude Code permissions (may embed secrets in allow-listed commands, never public)
+.claude/
