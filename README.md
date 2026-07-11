@@ -42,13 +42,13 @@ node build-timer.mjs seed executive-briefing-generator 45
 # Seeded "executive-briefing-generator" with a manually-known duration of 45m.
 ```
 
-- **`start <name>`** — begins a new timer. Refuses to clobber an existing unfinished timer for the same name.
-- **`pause <name>`** — stops the clock without finishing the build. No-op if already paused or finished.
-- **`resume <name>`** — restarts the clock, folding the pause duration into the running total of excluded time.
-- **`finish <name>`** — closes out the timer and locks in the active build time (auto-resumes first if it was left paused).
-- **`status <name>`** — prints the current state (running/paused/finished) and active time so far, without changing anything.
-- **`report`** — lists every tracked project, its state, and its active time, in one table.
-- **`seed <name> <minutes>`** — records a manually-known duration directly, for a build that finished before this tool tracked it in real time (used once, for the two builds where the original elapsed time was still known).
+- **`start <name>`**: begins a new timer. Refuses to clobber an existing unfinished timer for the same name.
+- **`pause <name>`**: stops the clock without finishing the build. No-op if already paused or finished.
+- **`resume <name>`**: restarts the clock, folding the pause duration into the running total of excluded time.
+- **`finish <name>`**: closes out the timer and locks in the active build time (auto-resumes first if it was left paused).
+- **`status <name>`**: prints the current state (running/paused/finished) and active time so far, without changing anything.
+- **`report`**: lists every tracked project, its state, and its active time, in one table.
+- **`seed <name> <minutes>`**: records a manually-known duration directly, for a build that finished before this tool tracked it in real time (used once, for the two builds where the original elapsed time was still known).
 
 Every command is a no-op-safe read of `.build-times.json`, edits are only written when the requested transition is actually valid, so re-running a command against a project in the wrong state just prints a message instead of corrupting the log.
 
